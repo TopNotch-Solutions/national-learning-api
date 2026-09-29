@@ -1,0 +1,32 @@
+{
+  "name": "edu-learning-backend",
+  "version": "1.0.0",
+  "description": "Edu Learning Namibia API - Node.js, Express, MySQL",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db:setup": "node scripts/setup-db.js",
+    "db:seed": "node scripts/seed-demo-users.js"
+  },
+  "keywords": [
+    "express",
+    "mysql",
+    "edu-learning"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "multer": "^2.4.0",
+    "mysql2": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "nodemon": "^3.1.14"
+  }
+}
