@@ -36,4 +36,23 @@ const upload = multer({
   },
 });
 
-module.exports = { upload, uploadsRoot };
+const imageMimeTypes = new Set([
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+  'image/gif',
+]);
+
+const uploadImage = multer({
+  storage,
+  limits: { fileSize: 8 * 1024 * 1024 },
+  fileFilter(_req, file, cb) {
+    if (!imageMimeTypes.has(file.mimetype)) {
+      cb(new Error('Only JPEG, PNG, WebP, or GIF images are allowed'));
+      return;
+    }
+    cb(null, true);
+  },
+});
+
+module.exports = { upload, uploadImage, uploadsRoot };

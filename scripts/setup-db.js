@@ -2,6 +2,7 @@ require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const { pool } = require('../src/config/db');
 const { ensureStaffColumns } = require('../src/config/ensureStaffColumns');
+const { ensureExploreTables } = require('../src/config/ensureExploreTables');
 
 const DEMO_PASSWORD = 'Password123!';
 
@@ -106,6 +107,8 @@ async function setup() {
   `);
 
   await ensureStaffColumns();
+  await ensureExploreTables();
+  console.log('Explore tables ready');
 
   const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
   const users = [
